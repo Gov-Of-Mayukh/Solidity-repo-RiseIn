@@ -24,8 +24,8 @@ contract ProposalContract {
     }
 
     function create(string calldata _title, string calldata _description, uint256 _total_vote_to_end) external onlyOwner{
-    counter += 1;
-    proposal_history[counter] = Proposal(_title, _description, 0, 0, 0, _total_vote_to_end, false, true);
+        counter += 1;
+        proposal_history[counter] = Proposal(_title, _description, 0, 0, 0, _total_vote_to_end, false, true);
     }
 
     mapping(uint256 => Proposal) proposal_history; // Recordings of previous proposals
