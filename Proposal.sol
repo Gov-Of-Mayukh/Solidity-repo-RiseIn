@@ -3,8 +3,8 @@ pragma solidity ^0.8.18;
 
 contract ProposalContract {
 
+    uint256 counter=0;
     address owner;
-
     modifier onlyOwner(){
         require(msg.sender==owner);
         _;
@@ -27,7 +27,6 @@ contract ProposalContract {
         counter += 1;
         proposal_history[counter] = Proposal(_title, _description, 0, 0, 0, _total_vote_to_end, false, true);
     }
-
     mapping(uint256 => Proposal) proposal_history; // Recordings of previous proposals
  
     function setOwner(address new_owner) external onlyOwner {
